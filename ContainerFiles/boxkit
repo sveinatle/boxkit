@@ -10,6 +10,9 @@ COPY ../scripts/boxkit.sh /
 COPY ../scripts/distrobox-shims.sh /
 COPY ../packages/boxkit.packages /
 
+# Copy chezmoi first-run script to profile.d
+COPY ../scripts/chezmoi-firstrun.sh /etc/profile.d/00-chezmoi-init.sh
+
 # Run the setup scripts
 RUN chmod +x boxkit.sh distrobox-shims.sh && /boxkit.sh
 RUN rm /boxkit.sh /distrobox-shims.sh /boxkit.packages
